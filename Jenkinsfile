@@ -2,7 +2,7 @@ pipeline {
  agent none
 
  environment{
-   SERVICE_NAME = "mfdump"
+   SERVICE_NAME = "mfbundle"
    ORGANIZATION_NAME = "myfinance"
    DOCKERHUB_USER = "holgerfischer"
    //Snapshot Version
