@@ -20,8 +20,8 @@ version: ${VERSION}
 # incremented each time you make changes to the application.
 appVersion: ${VERSION}
 
-#dependencies:
-#- name: prometheus-operator
-#  repository: https://kubernetes-charts.storage.googleapis.com/ 
-#  version: 8.12.12
+dependencies:
+- name: mfbackend
+  repository: ${TARGET_HELM_REPO}
+  version: 0.13.0-alpha.16
 

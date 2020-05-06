@@ -12,6 +12,7 @@ pipeline {
    REPOSITORY_TAG = "${DOCKERHUB_USER}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${VERSION}"
    K8N_IP = "192.168.100.73"
    DOCKER_REPO = "${K8N_IP}:31003/repository/mydockerrepo/"
+   TARGET_HELM_REPO = "http://${K8N_IP}:31001/repository/myhelmrepo/"
  }
 
  stages{
@@ -45,6 +46,8 @@ pipeline {
        // sh 'envsubst < deploy.yaml | kubectl apply -f -'
        sh 'envsubst < ./helm/mfbundle/Chart_template.yaml > ./helm/mfbundle/Chart.yaml'
        sh 'helm upgrade -i --cleanup-on-fail mfbundle ./helm/mfbundle/ --set repository=${DOCKER_REPO}/${DOCKERHUB_USER}/${ORGANIZATION_NAME}-'
+       sh 'helm package helm/mfbundle -u -d helmcharts/'
+       sh 'curl ${TARGET_HELM_REPO} --upload-file helmcharts/mfbundle-${VERSION}.tgz -v'
      }
    }
  }
