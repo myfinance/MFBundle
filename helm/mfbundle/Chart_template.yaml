@@ -24,4 +24,13 @@ dependencies:
 - name: mfbackend
   repository: ${TARGET_HELM_REPO}
   version: 0.13.0-alpha.16
+- name: mffrontend
+  repository: ${TARGET_HELM_REPO}
+  version: 0.13.0-alpha.9
+- name: mfshell
+  repository: ${TARGET_HELM_REPO}
+  version: 0.13.0-alpha.7
+- name: mfbackup
+  repository: ${TARGET_HELM_REPO}
+  version: 0.13.0-alpha.3  
 
