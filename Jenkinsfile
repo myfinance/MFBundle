@@ -45,15 +45,15 @@ pipeline {
    //    sh 'helm delete mfbackend'
    //  }
    //}   
-   stage('deploy to cluster'){
-     agent any
-     steps {
-       sh 'helm repo add myrepo ${TARGET_HELM_REPO}'
-       sh 'helm repo update'
-       sh 'helm repo list'
-       sh 'helm search repo mfbundle --devel'
-       sh 'helm upgrade -i --cleanup-on-fail mfbundle myrepo/mfbundle --set repository=${DOCKER_REPO}/${DOCKERHUB_USER}/${ORGANIZATION_NAME}- --devel'
-     }
-   }   
+   //stage('deploy to cluster'){
+   //  agent any
+   //  steps {
+   //    sh 'helm repo add myrepo ${TARGET_HELM_REPO}'
+   //    sh 'helm repo update'
+   //    sh 'helm repo list'
+   //    sh 'helm search repo mfbundle --devel'
+   //    sh 'helm upgrade -i --cleanup-on-fail mfbundle myrepo/mfbundle --set repository=${DOCKER_REPO}/${DOCKERHUB_USER}/${ORGANIZATION_NAME}- --devel'
+   //  }
+   //}   
  }
 }
