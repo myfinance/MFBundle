@@ -48,6 +48,7 @@ pipeline {
    stage('deploy to cluster'){
      agent any
      steps {
+       sh 'helm repo add local ${TARGET_HELM_REPO}'
        sh 'helm upgrade -i --cleanup-on-fail mfbundle myrepo/mfbundle --set repository=${DOCKER_REPO}/${DOCKERHUB_USER}/${ORGANIZATION_NAME}- --devel'
      }
    }   
