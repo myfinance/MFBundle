@@ -36,15 +36,15 @@ pipeline {
        sh 'curl ${TARGET_HELM_REPO} --upload-file helmcharts/mfbundle-${VERSION}.tgz -v'
      }
    }
-   stage('cleanup cluster'){
-     agent any
-     steps {
-       //sh 'helm delete mfbackup'
-       sh 'helm delete mfshell'
-       sh 'helm delete mffrontend'
-       sh 'helm delete mfbackend'
-     }
-   }   
+   //stage('cleanup cluster'){
+   //  agent any
+   //  steps {
+   //    //sh 'helm delete mfbackup'
+   //    sh 'helm delete mfshell'
+   //    sh 'helm delete mffrontend'
+   //    sh 'helm delete mfbackend'
+   //  }
+   //}   
    stage('deploy to cluster'){
      agent any
      steps {
