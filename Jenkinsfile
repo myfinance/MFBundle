@@ -51,7 +51,7 @@ pipeline {
        sh 'helm repo add local ${TARGET_HELM_REPO}'
        sh 'helm repo update'
        sh 'helm repo list'
-       sh 'helm repo search mfbundle --devel'
+       sh 'helm search repo mfbundle --devel'
        sh 'helm upgrade -i --cleanup-on-fail mfbundle myrepo/mfbundle --set repository=${DOCKER_REPO}/${DOCKERHUB_USER}/${ORGANIZATION_NAME}- --devel'
      }
    }   
