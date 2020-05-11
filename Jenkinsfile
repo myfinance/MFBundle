@@ -11,7 +11,7 @@ pipeline {
    //VERSION = "0.13.0"
    REPOSITORY_TAG = "${DOCKERHUB_USER}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${VERSION}"
    K8N_IP = "192.168.100.73"
-   DOCKER_REPO = "${K8N_IP}:31003/repository/mydockerrepo/"
+   DOCKER_REPO = "${K8N_IP}:31003/repository/mydockerrepo"
    TARGET_HELM_REPO = "http://${K8N_IP}:31001/repository/myhelmrepo/"
  }
 
@@ -39,7 +39,7 @@ pipeline {
    stage('cleanup cluster'){
      agent any
      steps {
-       sh 'helm delete mfbackup'
+       //sh 'helm delete mfbackup'
        sh 'helm delete mfshell'
        sh 'helm delete mffrontend'
        sh 'helm delete mfbackend'
@@ -48,7 +48,6 @@ pipeline {
    stage('deploy to cluster'){
      agent any
      steps {
-       //sh 'helm upgrade -i --cleanup-on-fail mfbundle ./helm/mfbundle/ --set repository=${DOCKER_REPO}/${DOCKERHUB_USER}/${ORGANIZATION_NAME}-'
        sh 'helm upgrade -i --cleanup-on-fail mfbundle myrepo/mfbundle --set repository=${DOCKER_REPO}/${DOCKERHUB_USER}/${ORGANIZATION_NAME}- --devel'
      }
    }   
