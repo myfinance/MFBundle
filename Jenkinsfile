@@ -8,7 +8,7 @@ pipeline {
    //Snapshot Version
    //VERSION = "0.14.0-alpha.${BUILD_ID}"
    //Release Version
-   VERSION = "0.13.1"
+   VERSION = "0.13.2"
    REPOSITORY_TAG = "${DOCKERHUB_USER}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${VERSION}"
    K8N_IP = "192.168.100.73"
    DOCKER_REPO = "${K8N_IP}:31003/repository/mydockerrepo"
