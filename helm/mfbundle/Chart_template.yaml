@@ -23,13 +23,13 @@ appVersion: ${VERSION}
 dependencies:
 - name: mfbackend
   repository: ${TARGET_HELM_REPO}
-  version: 0.13.1
+  version: 0.14.2
 - name: mffrontend
   repository: ${TARGET_HELM_REPO}
-  version: 0.13.0
+  version: 0.14.0
 - name: mfshell
   repository: ${TARGET_HELM_REPO}
-  version: 0.13.0
+  version: 0.14.0
 - name: mfbackup
   repository: ${TARGET_HELM_REPO}
   version: 0.13.0 
