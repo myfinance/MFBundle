@@ -54,7 +54,7 @@ pipeline {
        sh 'helm repo update'
    //    sh 'helm repo list'
    //    sh 'helm search repo mfbundle --devel'
-       sh 'helm upgrade -i --cleanup-on-fail mfbundle -n ${NAMESPACE} myrepo/mfbundle --set mfdb.db_url=${K8N_IP} --set mfdb.db_port_ext=30040 --set repository=${DOCKER_REPO}/${DOCKERHUB_USER}/${ORGANIZATION_NAME}- --devel'
+       sh 'helm upgrade -i --cleanup-on-fail mfbundle -n ${NAMESPACE} myrepo/mfbundle --set mfdb.db_url=${K8N_IP} --set repository=${DOCKER_REPO}/${DOCKERHUB_USER}/${ORGANIZATION_NAME}- --devel'
      }
    }   
  }

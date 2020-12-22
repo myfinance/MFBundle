@@ -8,9 +8,10 @@ mfdb:
     db_port_ext: 30040
 
 mfbackend:
-  stage: prod
-  mf_http_port_ext: 30041
-  mf_https_port_ext: 30042
+  mfbackend:
+    stage: prod
+    mf_http_port_ext: 30041
+    mf_https_port_ext: 30042
 
 mffrontend:
   stage: prod
