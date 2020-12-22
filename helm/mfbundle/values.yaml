@@ -3,8 +3,9 @@
 # Declare variables to be passed into your templates.
 
 mfdb:
-  stage: prod
-  db_port_ext: 30040
+  mfdb:
+    stage: prod
+    db_port_ext: 30040
 
 mfbackend:
   stage: prod
