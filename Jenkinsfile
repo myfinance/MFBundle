@@ -49,7 +49,7 @@ pipeline {
    stage('deploy to cluster'){
      agent any
      steps {
-   //    sh 'helm repo add myrepo ${TARGET_HELM_REPO}'
+       sh 'helm repo add myrepo ${TARGET_HELM_REPO}'
        sh 'helm repo update'
    //    sh 'helm repo list'
    //    sh 'helm search repo mfbundle --devel'
