@@ -49,6 +49,7 @@ pipeline {
    stage('deploy to cluster'){
      agent any
      steps {
+       sh 'kubectl apply -f ./namespace.yaml'
        sh 'helm repo add myrepo ${TARGET_HELM_REPO}'
        sh 'helm repo update'
    //    sh 'helm repo list'
