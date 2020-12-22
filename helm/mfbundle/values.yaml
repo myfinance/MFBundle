@@ -14,12 +14,15 @@ mfbackend:
     mf_https_port_ext: 30042
 
 mffrontend:
-  stage: prod
-  http_port_ext: 30043
+  mffrontend:
+    stage: prod
+    http_port_ext: 30043
 
 mfshell:
-  stage: prod
+  mfshell:
+    stage: prod
 
 mfbackup:
-  stage: prod  
+  mfbackup:
+    stage: prod  
 
