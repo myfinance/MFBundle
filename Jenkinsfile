@@ -6,22 +6,23 @@ pipeline {
    ORGANIZATION_NAME = "myfinance"
    DOCKERHUB_USER = "holgerfischer"
    //Snapshot Version
-   //VERSION = "0.14.0-alpha.${BUILD_ID}"
+   VERSION = "0.16.0-alpha.${BUILD_ID}"
    //Release Version
-   VERSION = "0.14.0"
+   //VERSION = "0.14.0"
    REPOSITORY_TAG = "${DOCKERHUB_USER}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${VERSION}"
    K8N_IP = "192.168.100.73"
    DOCKER_REPO = "${K8N_IP}:31003/repository/mydockerrepo"
    TARGET_HELM_REPO = "http://${K8N_IP}:31001/repository/myhelmrepo/"
+   NAMESPACE = "mfprod"
  }
 
  stages{
    stage('preperation'){
     agent {
         docker {
-            image 'maven:3.6.3-jdk-8' 
+            image 'maven:3.6.3-jdk-11'
         }
-    }      
+    }       
      steps {
        cleanWs()
        git credentialsId: 'github', url: "https://github.com/${ORGANIZATION_NAME}/${SERVICE_NAME}.git"
@@ -45,15 +46,15 @@ pipeline {
    //    sh 'helm delete mfbackend'
    //  }
    //}   
-   //stage('deploy to cluster'){
-   //  agent any
-   //  steps {
+   stage('deploy to cluster'){
+     agent any
+     steps {
    //    sh 'helm repo add myrepo ${TARGET_HELM_REPO}'
-   //    sh 'helm repo update'
+       sh 'helm repo update'
    //    sh 'helm repo list'
    //    sh 'helm search repo mfbundle --devel'
-   //    sh 'helm upgrade -i --cleanup-on-fail mfbundle myrepo/mfbundle --set repository=${DOCKER_REPO}/${DOCKERHUB_USER}/${ORGANIZATION_NAME}- --devel'
-   //  }
-   //}   
+       sh 'helm upgrade -i --cleanup-on-fail mfbundle -n ${NAMESPACE} myrepo/mfbundle --set mfdb.db_url=${K8N_IP} --set repository=${DOCKER_REPO}/${DOCKERHUB_USER}/${ORGANIZATION_NAME}- --devel'
+     }
+   }   
  }
 }

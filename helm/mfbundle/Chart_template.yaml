@@ -21,16 +21,19 @@ version: ${VERSION}
 appVersion: ${VERSION}
 
 dependencies:
+- name: mfdb
+  repository: ${TARGET_HELM_REPO}
+  version: 0.16.0-alpha.45
 - name: mfbackend
   repository: ${TARGET_HELM_REPO}
-  version: 0.14.2
+  version: 0.16.0-alpha.62
 - name: mffrontend
   repository: ${TARGET_HELM_REPO}
-  version: 0.14.0
+  version: 0.16.0-alpha.16
 - name: mfshell
   repository: ${TARGET_HELM_REPO}
-  version: 0.14.0
+  version: 0.16.0-alpha.26
 - name: mfbackup
   repository: ${TARGET_HELM_REPO}
-  version: 0.13.0 
+  version: 0.14.0-alpha.13
 

@@ -2,15 +2,22 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+mfdb:
+  stage: prod
+  db_port_ext: 30040
+
 mfbackend:
   stage: prod
+  mf_http_port_ext: 30041
+  mf_https_port_ext: 30042
 
 mffrontend:
   stage: prod
+  http_port_ext: 30043
 
 mfshell:
   stage: prod
 
 mfbackup:
-  stage: prod    
+  stage: prod  
 
