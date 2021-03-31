@@ -26,10 +26,10 @@ dependencies:
   version: 0.16.0
 - name: mfbackend
   repository: ${TARGET_HELM_REPO}
-  version: 0.16.0
+  version: 0.17.0
 - name: mffrontend
   repository: ${TARGET_HELM_REPO}
-  version: 0.16.0
+  version: 0.17.0
 - name: mfshell
   repository: ${TARGET_HELM_REPO}
   version: 0.16.0
